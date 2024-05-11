@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SessionWrapper from "@/components/SessionWrapper";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +16,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className=" bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)]  text-white">
+      <body
+        suppressHydrationWarning={true}
+        className=" bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)]  text-white"
+      >
         <SessionWrapper>
           <Navbar />
+          <ToastContainer />
           <div className="min-h-screen  bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)]  text-white">
             {children}
           </div>

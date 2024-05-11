@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { cookies } from "next/headers";
 import { GiCoffeeCup } from "react-icons/gi";
 
 export default function Home() {
