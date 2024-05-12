@@ -101,8 +101,8 @@ const Username = ({ params }) => {
                   >
                     <FaRegUser className=" animate-pulse text-2xl" />
                     <li className="  font-semibold capitalize ">
-                      <span>{ele.name}</span> - Donated ${ele.amount} "{" "}
-                      {ele.message} ! "
+                      <span>{ele.name}</span> - Donated ${ele.amount} -{" "}
+                      {ele.message} !
                     </li>
                   </div>
                 ))
