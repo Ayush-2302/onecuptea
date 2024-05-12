@@ -1,11 +1,18 @@
 "use client";
 import axios from "axios";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { FaRegUser } from "react-icons/fa6";
 
 const Username = ({ params }) => {
   const { data: session } = useSession();
+  const route = useRouter();
+
+  const authToken = localStorage.getItem("token");
+  if (!authToken && !session) {
+    route.push("/login");
+  }
 
   const [pay, setPay] = useState({
     name: "",
@@ -69,8 +76,8 @@ const Username = ({ params }) => {
             alt="profile"
           />
         </div>
-        <div className=" flex justify-center  flex-col gap-2 items-center mt-24 my-10 ">
-          <div className=" text-xl font-bold">
+        <div className=" flex justify-center  capitalize flex-col gap-2 items-center mt-24 my-10 ">
+          <div className="  text-xl font-bold">
             {session ? session.user.name : params.username}
             {/* {params.username} */}
           </div>
@@ -93,9 +100,9 @@ const Username = ({ params }) => {
                     className=" flex items-center gap-4 text-lg"
                   >
                     <FaRegUser className=" animate-pulse text-2xl" />
-                    <li>
-                      <span className=" font-semibold ">{ele.name}</span> -
-                      Donated ${ele.amount} " {ele.message} ! "
+                    <li className="  font-semibold capitalize ">
+                      <span>{ele.name}</span> - Donated ${ele.amount} "{" "}
+                      {ele.message} ! "
                     </li>
                   </div>
                 ))
@@ -104,7 +111,7 @@ const Username = ({ params }) => {
             )}
           </ul>
         </div>
-        <div className=" bg-slate-900 px-5 py-2  rounded-lg  h-[430px]">
+        <div className=" bg-slate-900 px-5 py-2  rounded-lg   h-[430px]">
           <h2 className="font-bold text-lg mt-2">Payments :-</h2>
           <div className=" flex gap-2  flex-col items-center ">
             <div>

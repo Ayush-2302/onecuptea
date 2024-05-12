@@ -9,7 +9,7 @@ import {
   FaTwitter,
 } from "react-icons/fa6";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { login } from "@/utils/service/userService";
 import { toast } from "react-toastify";
 
@@ -28,7 +28,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await login(credential);
-      console.log(response, "data");
+      const name = response.data.user.name;
 
       setCredential({
         email: "",
@@ -38,18 +38,19 @@ const Login = () => {
         autoClose: 3000,
         theme: "dark",
       });
-      router.push("/");
+
+      router.push(`/${name}`);
     } catch (error) {
       console.log(error);
       toast.error("Login failed !!", {
-        autoClose: 3000,
+        autoClose: 2000,
         theme: "dark",
       });
     }
   };
 
   if (session) {
-    redirect("/");
+    router.push("/");
   }
 
   return (

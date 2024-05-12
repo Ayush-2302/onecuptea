@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { addMemories } from "@/utils/service/teaService";
+import { toast } from "react-toastify";
+import { GiCoffeeCup } from "react-icons/gi";
 const Dashboard = () => {
   const { data: session } = useSession();
   const authToken = localStorage.getItem("token");
@@ -28,12 +30,35 @@ const Dashboard = () => {
     e.preventDefault();
     try {
       const response = await addMemories(credentials);
-      console.log(response);
-    } catch (error) {}
+      setCredentials({
+        name: "",
+        title: "",
+        description: "",
+        avtar: "",
+      });
+      if (response.status === 200) {
+        return toast.success("Memories added successfully", {
+          theme: "dark",
+          delay: 2000,
+        });
+      }
+    } catch (error) {
+      return toast.error(error.message, {
+        theme: "dark",
+        delay: 2000,
+      });
+    }
   };
 
   return (
     <div className="md:w-1/2 w-11/12  mx-auto mt-8">
+      <h1 className=" text-3xl font-semibold text-center py-10 flex flex-col items-center gap-2 ">
+        "Savoring Serenity: Crafting Memories, One Sip at a Time - A Tea Lover's
+        Chronicle"{" "}
+        <span className="\ animate-pulse text-6xl ">
+          <GiCoffeeCup />
+        </span>
+      </h1>
       {session || authToken ? (
         <form
           onSubmit={handleSubmit}

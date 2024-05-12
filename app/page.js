@@ -1,4 +1,5 @@
 import { cookies } from "next/headers";
+import Link from "next/link";
 import { GiCoffeeCup } from "react-icons/gi";
 
 export default function Home() {
@@ -17,18 +18,22 @@ export default function Home() {
           tranquility and discovery.
         </p>
         <div className="flex">
+          <Link href="/addmemories">
           <button
             type="button"
             className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
           >
             Start Now
           </button>
-          <button
-            type="button"
-            className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-          >
-            Read more
-          </button>
+          </Link>
+          <Link href="https://en.wikipedia.org/wiki/Tea">
+            <button
+              type="button"
+              className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+            >
+              Read more
+            </button>
+          </Link>
         </div>
       </div>
       <hr className=" opacity-5 shadow-lg" />

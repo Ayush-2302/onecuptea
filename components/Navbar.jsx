@@ -11,6 +11,7 @@ const Navbar = () => {
   const [dropDown, setDropDown] = useState(false);
 
   const authToken = localStorage.getItem("token");
+  console.log(authToken, " authtoken navebar");
 
   const handleLogout = async (e) => {
     e.preventDefault();
@@ -39,105 +40,103 @@ const Navbar = () => {
       </Link>
 
       <div>
-        {session ||
-          (authToken && (
-            <div className=" flex items-center gap-4">
-              <div className=" relative">
-                <button
-                  // onBlur={() =>
-                  //   setTimeout(() => {
-                  //     setDropDown(false);
-                  //   }, 100)
-                  // }
-                  onClick={handleDropDown}
-                  type="button"
-                  className="flex z-50 items-center justify-center bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                >
-                  {/* Welcome {session.user.name} */}
-                  Welcome To One Cup CHAI
-                  <svg
-                    className="w-2.5 h-2.5 ms-3"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 10 6"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="m1 1 4 4 4-4"
-                    />
-                  </svg>
-                </button>
+        {session || authToken ? (
+          <div className=" flex items-center gap-4">
+            <div className=" relative">
+              <button
+                onClick={handleDropDown}
+                // onBlur={() =>
+                //   setTimeout(() => {
+                //     setDropDown(false);
+                //   }, 100)
+                // }
+                type="button"
+                className="flex z-50 items-center justify-center bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              >
+                {session
+                  ? `Welcome ${session.user.name}`
+                  : "Welcome To One Cup CHAI"}
 
-                <div
-                  className={` ${
-                    dropDown ? "" : "hidden"
-                  }  z-50  bg-white divide-y absolute left-[44px]  divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700`}
+                <svg
+                  className="w-2.5 h-2.5 ms-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
                 >
-                  <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
-                    <li onClick={handleDropDown}>
-                      <Link
-                        href="/addmemories"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Add memories
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/viewmemories"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Memories
-                      </Link>
-                    </li>
-                    <li onClick={handleDropDown}>
-                      <Link
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Your Page
-                      </Link>
-                    </li>
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
 
-                    <li onClick={handleLogout}>
-                      <Link
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Sign out
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
+              <div
+                className={` ${
+                  dropDown ? "" : "hidden"
+                }  z-50  bg-white divide-y absolute left-[44px]  divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700`}
+              >
+                <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+                  <li onClick={handleDropDown}>
+                    <Link
+                      href="/addmemories"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      Add memories
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/viewmemories"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      Memories
+                    </Link>
+                  </li>
+                  <li onClick={handleDropDown}>
+                    <Link
+                      href={session ? `/${session.user.name}` : `Guest`}
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      Your Page
+                    </Link>
+                  </li>
+
+                  <li onClick={handleLogout}>
+                    <Link
+                      href="#"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      Sign out
+                    </Link>
+                  </li>
+                </ul>
               </div>
             </div>
-          ))}
-
-        {!session ||
-          (!authToken && (
-            <div className="flex items-center">
-              <Link href={"/login"}>
-                <button
-                  type="button"
-                  className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                >
-                  Login
-                </button>
-              </Link>
-              <Link href={"/signup"}>
-                <button
-                  type="button"
-                  className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                >
-                  Signup
-                </button>
-              </Link>
-            </div>
-          ))}
+          </div>
+        ) : (
+          <div className="flex items-center">
+            <Link href={"/login"}>
+              <button
+                type="button"
+                className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              >
+                Login
+              </button>
+            </Link>
+            <Link href={"/signup"}>
+              <button
+                type="button"
+                className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              >
+                Signup
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
     </nav>
   );

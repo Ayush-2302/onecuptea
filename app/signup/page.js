@@ -1,6 +1,6 @@
 "use client";
 import { createUser } from "@/utils/service/userService";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
