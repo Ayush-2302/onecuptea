@@ -1,6 +1,7 @@
 "use client";
 import axios from "axios";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { FaRegUser } from "react-icons/fa6";
@@ -101,7 +102,7 @@ const Username = ({ params }) => {
                   >
                     <FaRegUser className=" animate-pulse text-2xl" />
                     <li className="  font-semibold capitalize ">
-                      <span>{ele.name}</span> - Donated ${ele.amount} -{" "}
+                      <span>{ele.name}</span> - Donated ${ele.amount} - 
                       {ele.message} !
                     </li>
                   </div>
@@ -153,7 +154,7 @@ const Username = ({ params }) => {
                 type="submit"
                 className="text-white w-1/2  bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
               >
-                Pay{" "}
+                Pay 
               </button>
             </form>
           </div>

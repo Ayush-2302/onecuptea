@@ -1,13 +1,14 @@
 "use client";
 import { addedMemories } from "@/utils/service/teaService";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { GiCoffeeCup } from "react-icons/gi";
 
 const page = () => {
-  const route = useRouter();
   const { data: session } = useSession();
+  const route = useRouter();
 
   const initial = [];
   const [memories, setMemories] = useState(initial);
@@ -25,11 +26,12 @@ const page = () => {
   useEffect(() => {
     fetchMemories();
   }, []);
+  
   return (
     <>
       <h1 className=" text-3xl font-semibold md:w-1/2 mx-auto text-center py-10 flex flex-col items-center gap-2 ">
         Sip by Sip: Reliving Memories Through the Aroma of Tea - A Tea Lovers
-        Reflection{" "}
+        Reflection 
         <span className="\ animate-pulse text-6xl ">
           <GiCoffeeCup />
         </span>
