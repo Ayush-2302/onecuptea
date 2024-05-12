@@ -1,4 +1,3 @@
-import { cookies } from "next/headers";
 import Link from "next/link";
 import { GiCoffeeCup } from "react-icons/gi";
 

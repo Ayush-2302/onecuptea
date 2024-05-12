@@ -28,8 +28,8 @@ const page = () => {
   return (
     <>
       <h1 className=" text-3xl font-semibold md:w-1/2 mx-auto text-center py-10 flex flex-col items-center gap-2 ">
-        "Sip by Sip: Reliving Memories Through the Aroma of Tea - A Tea Lover's
-        Reflection"{" "}
+        Sip by Sip: Reliving Memories Through the Aroma of Tea - A Tea Lovers
+        Reflection{" "}
         <span className="\ animate-pulse text-6xl ">
           <GiCoffeeCup />
         </span>

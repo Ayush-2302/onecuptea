@@ -53,8 +53,8 @@ const Dashboard = () => {
   return (
     <div className="md:w-1/2 w-11/12  mx-auto mt-8">
       <h1 className=" text-3xl font-semibold text-center py-10 flex flex-col items-center gap-2 ">
-        "Savoring Serenity: Crafting Memories, One Sip at a Time - A Tea Lover's
-        Chronicle"{" "}
+        Savoring Serenity: Crafting Memories, One Sip at a Time - A Tea Lovers
+        Chronicle{" "}
         <span className="\ animate-pulse text-6xl ">
           <GiCoffeeCup />
         </span>
