@@ -59,14 +59,14 @@ const Username = ({ params }) => {
   return (
     <>
       <div className=" h-[400px] w-full object-cover relative ">
-        <img
+        <Image
           className=" h-[400px] w-full object-cover object-center"
           src="tealove.avif"
           alt="teacover"
         />
 
         <div className=" absolute md:left-[45%] left-[42%] -bottom-20 border-2 rounded-full">
-          <img
+          <Image
             className="rounded-full w-[150px] h-[150px] object-cover object-top"
             src={
               session
@@ -115,7 +115,7 @@ const Username = ({ params }) => {
           <h2 className="font-bold text-lg mt-2">Payments :-</h2>
           <div className=" flex gap-2  flex-col items-center ">
             <div>
-              <img src="QR.jpg" className="w-28 h-28" alt="" />
+              <Image src="QR.jpg" className="w-28 h-28" alt="" />
             </div>
             {/* input for name and message  */}
             <form className=" flex flex-col w-full items-center gap-3">

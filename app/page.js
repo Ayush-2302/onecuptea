@@ -47,7 +47,7 @@ export default function Home() {
         </p>
         <div className="flex my-10 p-4 items-center justify-evenly container">
           <div className="  flex flex-col items-center justify-center gap-2">
-            <img
+            <Image
               className="w-[8vw] h-[8vw] rounded-full"
               src="pay.svg"
               alt="funding"
@@ -55,7 +55,7 @@ export default function Home() {
             <p className=" font-bold">Building Relationships</p>
           </div>
           <div className="  flex flex-col items-center justify-center gap-2">
-            <img
+            <Image
               className="w-[8vw] h-[8vw] rounded-full"
               src="pay1.svg"
               alt="funding"
@@ -63,7 +63,7 @@ export default function Home() {
             <p className=" font-bold">Supporting Community</p>
           </div>
           <div className="  flex flex-col items-center justify-center gap-2">
-            <img
+            <Image
               className="w-[8vw] h-[8vw] rounded-full"
               src="pay2.svg"
               alt="funding"

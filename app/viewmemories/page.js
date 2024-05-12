@@ -38,7 +38,7 @@ const page = () => {
         {memories &&
           memories.map((ele) => (
             <div key={ele._id} className="  bg-gray-900 rounded-lg shadow-md ">
-              <img
+              <Image
                 src={ele.avatar}
                 alt={ele.title}
                 className="mb-4 h-[300px] w-full object-cover object-center  rounded-lg"
