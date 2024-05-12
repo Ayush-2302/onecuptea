@@ -41,7 +41,7 @@ export default function Home() {
       <div className=" flex flex-col py-10 justify-center items-center ">
         <h2 className="text-2xl font-bold"> Its Not About the Money !</h2>
         <p className="w-7/12 text-center">
-          Ultimately, convey that it's not about the monetary value of the tea
+          Ultimately, convey that its not about the monetary value of the tea
           bill, but about the gesture and the camaraderie it fosters among
           everyone present.
         </p>
