@@ -8,7 +8,7 @@ import { GiCoffeeCup } from "react-icons/gi";
 const Addmemories = () => {
   const { data: session } = useSession();
   const router = useRouter();
-  const authToken = localStorage.getItem("token");
+  const authToken = window.localStorage.getItem("token");
   if (!session && !authToken) {
     router.push("/login");
   }

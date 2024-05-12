@@ -10,7 +10,7 @@ const Navbar = () => {
   const { data: session } = useSession();
   const [dropDown, setDropDown] = useState(false);
 
-  const authToken = localStorage.getItem("token");
+  const authToken = window.localStorage.getItem("token");
   console.log(authToken, " authtoken navebar");
 
   const handleLogout = async (e) => {

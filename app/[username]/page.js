@@ -9,7 +9,7 @@ const Username = ({ params }) => {
   const { data: session } = useSession();
   const route = useRouter();
 
-  const authToken = localStorage.getItem("token");
+  const authToken = window.localStorage.getItem("token");
   if (!authToken && !session) {
     route.push("/login");
   }
@@ -101,7 +101,7 @@ const Username = ({ params }) => {
                   >
                     <FaRegUser className=" animate-pulse text-2xl" />
                     <li className="  font-semibold capitalize ">
-                      <span>{ele.name}</span> - Donated ${ele.amount} - 
+                      <span>{ele.name}</span> - Donated ${ele.amount} -
                       {ele.message} !
                     </li>
                   </div>
@@ -153,7 +153,7 @@ const Username = ({ params }) => {
                 type="submit"
                 className="text-white w-1/2  bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
               >
-                Pay 
+                Pay
               </button>
             </form>
           </div>

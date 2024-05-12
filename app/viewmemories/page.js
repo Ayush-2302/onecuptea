@@ -17,11 +17,11 @@ const ViewMemories = () => {
     console.log(response.data.user, " response");
   };
 
-  const authToken = localStorage.getItem("token");
+  const authToken = window.localStorage.getItem("token");
   if (!authToken && !session) {
     route.push("/login");
   }
-
+  
   useEffect(() => {
     fetchMemories();
   }, []);
