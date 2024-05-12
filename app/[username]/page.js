@@ -1,12 +1,11 @@
 "use client";
 import axios from "axios";
 import { useSession } from "next-auth/react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { FaRegUser } from "react-icons/fa6";
 
-const page = ({ params }) => {
+const Username = ({ params }) => {
   const { data: session } = useSession();
   const route = useRouter();
 
@@ -60,14 +59,14 @@ const page = ({ params }) => {
   return (
     <>
       <div className=" h-[400px] w-full object-cover relative ">
-        <Image
+        <img
           className=" h-[400px] w-full object-cover object-center"
           src="tealove.avif"
           alt="teacover"
         />
 
         <div className=" absolute md:left-[45%] left-[42%] -bottom-20 border-2 rounded-full">
-          <Image
+          <img
             className="rounded-full w-[150px] h-[150px] object-cover object-top"
             src={
               session
@@ -116,7 +115,7 @@ const page = ({ params }) => {
           <h2 className="font-bold text-lg mt-2">Payments :-</h2>
           <div className=" flex gap-2  flex-col items-center ">
             <div>
-              <Image src="QR.jpg" className="w-28 h-28" alt="" />
+              <img src="QR.jpg" className="w-28 h-28" alt="" />
             </div>
             {/* input for name and message  */}
             <form className=" flex flex-col w-full items-center gap-3">
@@ -164,4 +163,4 @@ const page = ({ params }) => {
   );
 };
 
-export default page;
+export default Username;

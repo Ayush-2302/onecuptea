@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <div className=" cover h-[44vh]  flex justify-center items-center gap-5 flex-col text-center">
         <h1 className=" flex items-center gap-4 text-3xl">
-          Enjoy Your Tea 
+          Enjoy Your Tea
           <span className=" text-5xl animate-bounce ">
             <GiCoffeeCup />
           </span>
@@ -48,6 +48,8 @@ export default function Home() {
         <div className="flex my-10 p-4 items-center justify-evenly container">
           <div className="  flex flex-col items-center justify-center gap-2">
             <Image
+              width={8}
+              height={8}
               className="w-[8vw] h-[8vw] rounded-full"
               src="pay.svg"
               alt="funding"
@@ -56,6 +58,8 @@ export default function Home() {
           </div>
           <div className="  flex flex-col items-center justify-center gap-2">
             <Image
+              width={8}
+              height={8}
               className="w-[8vw] h-[8vw] rounded-full"
               src="pay1.svg"
               alt="funding"
@@ -64,6 +68,8 @@ export default function Home() {
           </div>
           <div className="  flex flex-col items-center justify-center gap-2">
             <Image
+              width={8}
+              height={8}
               className="w-[8vw] h-[8vw] rounded-full"
               src="pay2.svg"
               alt="funding"

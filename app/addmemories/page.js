@@ -1,15 +1,16 @@
 "use client";
 import React, { useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { addMemories } from "@/utils/service/teaService";
 import { toast } from "react-toastify";
 import { GiCoffeeCup } from "react-icons/gi";
-const page = () => {
+const Addmemories = () => {
   const { data: session } = useSession();
+  const router = useRouter();
   const authToken = localStorage.getItem("token");
   if (!session && !authToken) {
-    redirect("/login");
+    router.push("/login");
   }
   // State to manage form inputs
   const [credentials, setCredentials] = useState({
@@ -54,7 +55,7 @@ const page = () => {
     <div className="md:w-1/2 w-11/12  mx-auto mt-8">
       <h1 className=" text-3xl font-semibold text-center py-10 flex flex-col items-center gap-2 ">
         Savoring Serenity: Crafting Memories, One Sip at a Time - A Tea Lovers
-        Chronicle 
+        Chronicle
         <span className="\ animate-pulse text-6xl ">
           <GiCoffeeCup />
         </span>
@@ -153,4 +154,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Addmemories;

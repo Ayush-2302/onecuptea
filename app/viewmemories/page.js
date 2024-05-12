@@ -1,12 +1,11 @@
 "use client";
 import { addedMemories } from "@/utils/service/teaService";
 import { useSession } from "next-auth/react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { GiCoffeeCup } from "react-icons/gi";
 
-const page   = () => {
+const ViewMemories = () => {
   const { data: session } = useSession();
   const route = useRouter();
 
@@ -40,7 +39,7 @@ const page   = () => {
         {memories &&
           memories.map((ele) => (
             <div key={ele._id} className="  bg-gray-900 rounded-lg shadow-md ">
-              <Image
+              <img
                 src={ele.avatar}
                 alt={ele.title}
                 className="mb-4 h-[300px] w-full object-cover object-center  rounded-lg"
@@ -57,4 +56,4 @@ const page   = () => {
   );
 };
 
-export default page  ;
+export default ViewMemories;
