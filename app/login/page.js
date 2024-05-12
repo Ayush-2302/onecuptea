@@ -13,7 +13,7 @@ import { useRouter } from "next/navigation";
 import { login } from "@/utils/service/userService";
 import { toast } from "react-toastify";
 
-const Login = () => {
+const page = () => {
   const router = useRouter();
   const { data: session } = useSession();
   const [credential, setCredential] = useState({
@@ -161,4 +161,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default page;

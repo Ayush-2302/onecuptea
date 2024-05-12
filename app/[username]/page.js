@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { FaRegUser } from "react-icons/fa6";
 
-const Username = ({ params }) => {
+const page = ({ params }) => {
   const { data: session } = useSession();
   const route = useRouter();
 
@@ -164,4 +164,4 @@ const Username = ({ params }) => {
   );
 };
 
-export default Username;
+export default page;

@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { addMemories } from "@/utils/service/teaService";
 import { toast } from "react-toastify";
 import { GiCoffeeCup } from "react-icons/gi";
-const Addmemories = () => {
+const page = () => {
   const { data: session } = useSession();
   const authToken = localStorage.getItem("token");
   if (!session && !authToken) {
@@ -153,4 +153,4 @@ const Addmemories = () => {
   );
 };
 
-export default Addmemories;
+export default page;

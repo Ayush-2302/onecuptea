@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { GiCoffeeCup } from "react-icons/gi";
 
-const ViewMemories   = () => {
+const page   = () => {
   const { data: session } = useSession();
   const route = useRouter();
 
@@ -57,4 +57,4 @@ const ViewMemories   = () => {
   );
 };
 
-export default ViewMemories  ;
+export default page  ;
