@@ -6,18 +6,14 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { logout } from "@/utils/service/userService";
 import { toast } from "react-toastify";
 
-const Navbar = () => {
+const Navbar = (req) => {
   const { data: session } = useSession();
   const [dropDown, setDropDown] = useState(false);
-
-  const authToken = window.localStorage.getItem("token");
-  console.log(authToken, " authtoken navebar");
 
   const handleLogout = async (e) => {
     e.preventDefault();
     await logout();
     await signOut();
-    localStorage.removeItem("token");
     setDropDown(!dropDown);
     toast.warning("Signout successfully !!", {
       theme: "dark",
@@ -40,7 +36,7 @@ const Navbar = () => {
       </Link>
 
       <div>
-        {session || authToken ? (
+        {session ? (
           <div className=" flex items-center gap-4">
             <div className=" relative">
               <button

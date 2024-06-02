@@ -9,8 +9,7 @@ const Username = ({ params }) => {
   const { data: session } = useSession();
   const route = useRouter();
 
-  const authToken = window.localStorage.getItem("token");
-  if (!authToken && !session) {
+  if ( !session) {
     route.push("/login");
   }
 

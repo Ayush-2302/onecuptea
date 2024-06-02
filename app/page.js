@@ -1,8 +1,10 @@
+import { cookies } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 import { GiCoffeeCup } from "react-icons/gi";
 
 export default function Home() {
+
   return (
     <>
       <div className=" cover h-[44vh]  flex justify-center items-center gap-5 flex-col text-center">

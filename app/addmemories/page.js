@@ -8,8 +8,7 @@ import { GiCoffeeCup } from "react-icons/gi";
 const Addmemories = () => {
   const { data: session } = useSession();
   const router = useRouter();
-  const authToken = window.localStorage.getItem("token");
-  if (!session && !authToken) {
+  if (!session ) {
     router.push("/login");
   }
   // State to manage form inputs
@@ -60,7 +59,7 @@ const Addmemories = () => {
           <GiCoffeeCup />
         </span>
       </h1>
-      {session || authToken ? (
+      {session  ? (
         <form
           onSubmit={handleSubmit}
           className="bg-gray-900 flex flex-col items-center shadow-md rounded-lg px-8 pt-6 pb-8 mb-4"
