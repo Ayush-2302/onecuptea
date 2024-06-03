@@ -10,10 +10,15 @@ export const login = async (credential) => {
   if (response.data.authToken) {
     localStorage.setItem("token", response.data.authToken);
   }
-  console.log(response, " response");
   return response;
 };
+
 export const logout = async () => {
   const response = await httpAxios.post("/user/logout");
   console.log(response, " response");
+};
+
+export const currentUser = async () => {
+  const response = await httpAxios.get("/user/currentuser");
+  return response;
 };

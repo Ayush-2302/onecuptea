@@ -2,15 +2,18 @@
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { FaRegUser } from "react-icons/fa6";
 
 const Username = ({ params }) => {
   const { data: session } = useSession();
+
+
   const route = useRouter();
 
-  if ( !session) {
+  if (!session) {
     route.push("/login");
+    console.log("hello baby");
   }
 
   const [pay, setPay] = useState({

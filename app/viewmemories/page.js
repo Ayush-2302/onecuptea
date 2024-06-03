@@ -7,10 +7,12 @@ import { GiCoffeeCup } from "react-icons/gi";
 
 const ViewMemories = () => {
   const { data: session } = useSession();
+
   const route = useRouter();
 
   const initial = [];
   const [memories, setMemories] = useState(initial);
+
   const fetchMemories = async () => {
     const response = await addedMemories();
     setMemories(response.data.user);
@@ -18,7 +20,7 @@ const ViewMemories = () => {
   };
 
   if (!session) {
-    route.push("/login");
+    // route.push("/login");
   }
 
   useEffect(() => {

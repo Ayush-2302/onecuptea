@@ -38,8 +38,7 @@ const Login = () => {
         autoClose: 3000,
         theme: "dark",
       });
-
-      router.push(`/${name}`);
+      // router.push(`/${name}`);
     } catch (error) {
       console.log(error);
       toast.error("Login failed !!", {

@@ -1,14 +1,17 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { GiCoffeeCup } from "react-icons/gi";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { logout } from "@/utils/service/userService";
 import { toast } from "react-toastify";
+import { TokenCont } from "@/utils/context/tokencontext";
 
-const Navbar = (req) => {
+const Navbar = () => {
+  const { userData } = useContext(TokenCont);
   const { data: session } = useSession();
   const [dropDown, setDropDown] = useState(false);
+  console.log(userData, "userdata useradatadf");
 
   const handleLogout = async (e) => {
     e.preventDefault();
@@ -36,7 +39,7 @@ const Navbar = (req) => {
       </Link>
 
       <div>
-        {session ? (
+        {session || userData ? (
           <div className=" flex items-center gap-4">
             <div className=" relative">
               <button

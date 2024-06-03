@@ -7,9 +7,10 @@ import { toast } from "react-toastify";
 import { GiCoffeeCup } from "react-icons/gi";
 const Addmemories = () => {
   const { data: session } = useSession();
+
   const router = useRouter();
   if (!session ) {
-    router.push("/login");
+    // router.push("/login");
   }
   // State to manage form inputs
   const [credentials, setCredentials] = useState({
@@ -59,7 +60,7 @@ const Addmemories = () => {
           <GiCoffeeCup />
         </span>
       </h1>
-      {session  ? (
+      {session || userData ? (
         <form
           onSubmit={handleSubmit}
           className="bg-gray-900 flex flex-col items-center shadow-md rounded-lg px-8 pt-6 pb-8 mb-4"
