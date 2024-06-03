@@ -2,11 +2,10 @@ import Tea from "@/models/Tea";
 import { NextResponse } from "next/server";
 import connectToMongoDb from "@/db/connectDb";
 import { writeFile } from "fs/promises";
-import fs from "fs"
+import fs from "fs";
 import path from "path";
 
 import { uploadOnCloudinary } from "@/utils/Cloudinary";
-import { log } from "console";
 
 connectToMongoDb();
 
@@ -32,7 +31,8 @@ export const POST = async (req) => {
       filename
     );
 
-    // await writeFile(avatarLocalPath, buffer);
+    await writeFile(avatarLocalPath, buffer);
+    console.log(avatarLocalPath,"localStorage");   
 
     if (!avatarLocalPath) {
       return NextResponse.json(
