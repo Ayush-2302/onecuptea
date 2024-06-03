@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const uri = "mongodb://localhost:27017/onecupchai";
+const uri = process.env.NEXT_PUBLIC_URI;
 
 const connectToMongoDb = async () => {
   try {
