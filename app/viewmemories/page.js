@@ -1,12 +1,14 @@
 "use client";
+import { TokenCont } from "@/utils/context/tokencontext";
 import { addedMemories } from "@/utils/service/teaService";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { GiCoffeeCup } from "react-icons/gi";
 
 const ViewMemories = () => {
   const { data: session } = useSession();
+  const { userData } = useContext(TokenCont);
 
   const route = useRouter();
 
@@ -19,8 +21,8 @@ const ViewMemories = () => {
     console.log(response.data.user, " response");
   };
 
-  if (!session) {
-    // route.push("/login");
+  if (!session && !userData) {
+    route.push("/login");
   }
 
   useEffect(() => {

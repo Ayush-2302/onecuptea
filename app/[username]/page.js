@@ -1,17 +1,18 @@
 "use client";
+import { TokenCont } from "@/utils/context/tokencontext";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, {  useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaRegUser } from "react-icons/fa6";
 
 const Username = ({ params }) => {
   const { data: session } = useSession();
-
+  const { userData } = useContext(TokenCont);
 
   const route = useRouter();
 
-  if (!session) {
+  if (!session && !userData) {
     route.push("/login");
     console.log("hello baby");
   }

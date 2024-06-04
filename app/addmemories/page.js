@@ -1,16 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { addMemories } from "@/utils/service/teaService";
 import { toast } from "react-toastify";
 import { GiCoffeeCup } from "react-icons/gi";
+import { TokenCont } from "@/utils/context/tokencontext";
 const Addmemories = () => {
   const { data: session } = useSession();
+  const { userData } = useContext(TokenCont);
 
   const router = useRouter();
-  if (!session ) {
-    // router.push("/login");
+  if (!session && !userData) {
+    router.push("/login");
   }
   // State to manage form inputs
   const [credentials, setCredentials] = useState({
