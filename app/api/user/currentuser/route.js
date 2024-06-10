@@ -9,7 +9,6 @@ export const GET = async (req) => {
     console.log(authToken, "current user");
     const data = jwt.verify(authToken, JWT_SECRET);
     const user = await User.findById(data.id).select("-password");
-
     return NextResponse.json(user);
   } catch (error) {
     return NextResponse.json({ error: error.message });

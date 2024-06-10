@@ -11,7 +11,6 @@ const Navbar = () => {
   const { userData } = useContext(TokenCont);
   const { data: session } = useSession();
   const [dropDown, setDropDown] = useState(false);
-  console.log(userData, "userdata useradatadf");
 
   const handleLogout = async (e) => {
     e.preventDefault();

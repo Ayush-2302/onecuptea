@@ -10,7 +10,6 @@ const TokenContextProvider = ({ children }) => {
     async function load() {
       try {
         const currUser = await currentUser();
-
         setUserData({ ...currUser });
       } catch (error) {
         console.log(error);

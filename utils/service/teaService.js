@@ -1,6 +1,17 @@
 import { httpAxios } from "./httpService";
 export const addMemories = async (credentials) => {
-  const response = await httpAxios.post("/tea", credentials);
+  const formData = new FormData();
+  for (const key in credentials) {
+    if (credentials.hasOwnProperty(key)) {
+      formData.append(key, credentials[key]);
+    }
+  }
+
+  const response = await httpAxios.post("/tea", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
   return response;
 };
 
